@@ -1,6 +1,5 @@
 CREATE DATABASE sandbox;
 USE sandbox;
-USE sandbox;
 
 CREATE TABLE profesor
 (
