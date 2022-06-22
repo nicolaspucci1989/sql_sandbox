@@ -1,5 +1,16 @@
 CREATE DATABASE sandbox;
 USE sandbox;
+USE sandbox;
+
+CREATE TABLE profesor
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(45) NOT NULL ,
+    apellido VARCHAR(45) NOT NULL,
+    fecha_nacimiento DATE NOT NULL ,
+    salario FLOAT NOT NULL,
+    PRIMARY KEY (id)
+);
 
 CREATE TABLE IF NOT EXISTS curso
 (
@@ -13,14 +24,14 @@ CREATE TABLE IF NOT EXISTS curso
     FOREIGN KEY (profesor_id) REFERENCES profesor(id)
 );
 
-CREATE TABLE profesor
+CREATE TABLE estudiante
 (
-    id INT NOT NULL AUTO_INCREMENT,
+    legajo INT NOT NULL ,
     nombre VARCHAR(45) NOT NULL ,
-    apellido VARCHAR(45) NOT NULL,
+    apellido VARCHAR(45) NOT NULL ,
     fecha_nacimiento DATE NOT NULL ,
-    salario FLOAT NOT NULL,
-    PRIMARY KEY (id)
+    carrera VARCHAR(45) NOT NULL,
+    PRIMARY KEY (legajo)
 );
 
 CREATE TABLE inscripcion
@@ -33,13 +44,3 @@ CREATE TABLE inscripcion
   FOREIGN KEY (curso_codigo) REFERENCES curso(codigo),
   FOREIGN KEY (estudiante_legajo) REFERENCES estudiante(legajo)
 );
-
-CREATE TABLE estudiante
-(
-    legajo INT NOT NULL ,
-    nombre VARCHAR(45) NOT NULL ,
-    apellido VARCHAR(45) NOT NULL ,
-    fecha_nacimiento DATE NOT NULL ,
-    carrera VARCHAR(45) NOT NULL,
-    PRIMARY KEY (legajo)
-)
